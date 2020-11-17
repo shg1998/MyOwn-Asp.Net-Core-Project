@@ -13,6 +13,7 @@ namespace MyOwnProject
 {
     public class Startup
     {
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -41,6 +42,7 @@ namespace MyOwnProject
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
