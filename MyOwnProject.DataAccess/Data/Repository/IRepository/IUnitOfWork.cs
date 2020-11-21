@@ -8,6 +8,8 @@ namespace MyOwnProject.DataAccess.Data.Repository.IRepository
     {
         ICategoryRepository category { get; }
 
+        IFrequencyRepository frequency { get; }
+
         void Save();
     }
 }

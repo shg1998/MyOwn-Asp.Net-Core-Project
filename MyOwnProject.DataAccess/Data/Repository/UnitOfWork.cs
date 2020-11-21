@@ -12,8 +12,11 @@ namespace MyOwnProject.DataAccess.Data.Repository
         {
             _db = db;
             category = new CategoryRepository(_db);
+            frequency = new FrequencyRepository(_db);
         }
         public ICategoryRepository category { get; private set; }
+
+        public IFrequencyRepository frequency { get; private set; }
 
         public void Dispose()
         {
