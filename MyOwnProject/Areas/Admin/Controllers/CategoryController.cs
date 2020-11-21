@@ -37,6 +37,29 @@ namespace MyOwnProject.Areas.Admin.Controllers
             }
             return View(category);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken] // for avoid to hacking and many many request suddenly by hacker!!
+        public IActionResult Upsert(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                if (category.id==0)
+                {
+                    _unitOfWork.category.Add(category);
+                }
+                else
+                {
+                    _unitOfWork.category.Update(category);
+                }
+                _unitOfWork.Save();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(category);
+            
+        }
+
+
         #region API Calls
 
 
